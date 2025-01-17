@@ -1,0 +1,55 @@
+.header-container {
+    text-align: center;
+    margin-top: 20px;
+    color: black !important;
+    width: 100%;
+}
+
+.header {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15vw;
+    flex-direction: column; /* Alineación vertical */
+}
+
+h1 {
+    font-size: 140px;
+    font-family: 'Arial', sans-serif;
+    white-space: nowrap; /* Evita el salto de línea */
+    overflow: hidden; /* Oculta texto desbordado durante la animación */
+    border-right: 2px solid black; /* Efecto de cursor */
+    animation: blink 0.7s step-end infinite; /* Parpadeo del cursor */
+}
+
+h3 {
+    font-size: 30px;
+    color: grey;
+    margin-top: 10px;
+    font-family: 'Arial', sans-serif;
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
+    animation-delay: 4s; /* Aparece después del título */
+}
+
+/* Animación de parpadeo del cursor */
+@keyframes blink {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: black;
+    }
+}
+
+/* Efecto de aparición */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
