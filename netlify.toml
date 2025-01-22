@@ -1,4 +1,4 @@
 [build]
   base = "personal"
-  publish = "dist"
+  publish = "personal/dist"
   command = "npm run build"
