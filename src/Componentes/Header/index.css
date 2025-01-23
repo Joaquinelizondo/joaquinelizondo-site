@@ -3,53 +3,84 @@
     margin-top: 20px;
     color: black !important;
     width: 100%;
-}
-
-.header {
+    padding: 0 5vw; /* Espacio lateral para pantallas pequeñas */
+  }
+  
+  .header {
     width: 100%;
     height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 15vw;
+    margin-top: 10vw; /* Reducir espacio superior */
     flex-direction: column; /* Alineación vertical */
-}
-
-h1 {
-    font-size: 140px;
+  }
+  
+  h1 {
+    font-size: 6vw; /* Tamaño reducido del título base */
     font-family: 'Arial', sans-serif;
     white-space: nowrap; /* Evita el salto de línea */
     overflow: hidden; /* Oculta texto desbordado durante la animación */
     border-right: 2px solid black; /* Efecto de cursor */
     animation: blink 0.7s step-end infinite; /* Parpadeo del cursor */
-}
-
-h3 {
-    font-size: 30px;
+  }
+  
+  h3 {
+    font-size: 3vw; /* Tamaño reducido del subtítulo base */
     color: grey;
     margin-top: 10px;
     font-family: 'Arial', sans-serif;
     opacity: 0;
     animation: fadeIn 2s ease-in-out forwards;
     animation-delay: 4s; /* Aparece después del título */
-}
-
-/* Animación de parpadeo del cursor */
-@keyframes blink {
+  }
+  
+  /* Animación de parpadeo del cursor */
+  @keyframes blink {
     from, to {
-        border-color: transparent;
+      border-color: transparent;
     }
     50% {
-        border-color: black;
+      border-color: black;
     }
-}
-
-/* Efecto de aparición */
-@keyframes fadeIn {
+  }
+  
+  /* Efecto de aparición */
+  @keyframes fadeIn {
     from {
-        opacity: 0;
+      opacity: 0;
     }
     to {
-        opacity: 1;
+      opacity: 1;
     }
-}
+  }
+  
+  /* Media Queries para pantallas más pequeñas */
+  @media (max-width: 768px) {
+    .header {
+      margin-top: 15vw; /* Ajuste de espacio superior en tablets */
+    }
+  
+    h1 {
+      font-size: 5vw; /* Reducir tamaño del título en tablets */
+    }
+  
+    h3 {
+      font-size: 2.5vw; /* Reducir tamaño del subtítulo en tablets */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .header {
+      margin-top: 20vw; /* Ajustar espacio superior en móviles */
+    }
+  
+    h1 {
+      font-size: 4.5vw; /* Tamaño más pequeño para el título en móviles */
+    }
+  
+    h3 {
+      font-size: 2vw; /* Tamaño más pequeño para el subtítulo */
+    }
+  }
+  
