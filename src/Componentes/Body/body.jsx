@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './index.css';
-import { SiPython, SiPlotly, SiPandas, SiNumpy, SiApachespark, SiDatabricks,  SiTableau, SiReact, SiPostgresql, } from 'react-icons/si';
+import profileImage from '../../assets/profile1.png';
+import { SiPython, SiPlotly, SiPandas, SiNumpy, SiApachespark, SiDatabricks, SiTableau, SiReact, SiPostgresql } from 'react-icons/si';
 import { FaFileExcel } from 'react-icons/fa';
 
 const useIntersectionFadeIn = (ref) => {
@@ -28,40 +29,27 @@ const useIntersectionFadeIn = (ref) => {
 const Body = () => {
   const aboutTitleRef = useRef(null);
   const aboutContentRef = useRef(null);
-  const [image, setImage] = useState(null);
 
   useIntersectionFadeIn(aboutTitleRef);
   useIntersectionFadeIn(aboutContentRef);
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const imageURL = URL.createObjectURL(file);
-      setImage(imageURL);
-    }
-  };
-
   return (
     <section className="body">
+      {/* Profile Image */}
       <div className="profile">
-        {image ? (
-          <img src={image} alt="Profile" className="profile-image" />
-        ) : (
-          <label htmlFor="imageUpload" className="image-upload-label">
-            Upload Photo
-            <input
-              type="file"
-              id="imageUpload"
-              accept="image/*"
-              onChange={handleImageChange}
-              style={{ display: 'none' }}
-            />
-          </label>
-        )}
+        <img
+          src={profileImage}
+          alt="Profile"
+          className="profile-image"
+        />
       </div>
+
+      {/* Title Section */}
       <div className="title" ref={aboutTitleRef}>
         <h1>About Me</h1>
       </div>
+
+      {/* About Content */}
       <div className="body1">
         <div className="content-box" ref={aboutContentRef}>
           <p>
@@ -88,6 +76,8 @@ const Body = () => {
           </p>
         </div>
       </div>
+
+      {/* Technologies Section */}
       <div className="tech-icons">
         <h2 className="tech-title">Technologies I Use</h2>
         <div className="icons-container">
