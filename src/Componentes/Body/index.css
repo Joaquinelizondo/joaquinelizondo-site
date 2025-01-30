@@ -1,17 +1,19 @@
-/* Base styles */
+/* ======= BASE STYLES ======= */
 .body {
-  width: 100%; /* Evita desbordamientos */
-  max-width: 100%; /* No sobrepasa el contenedor */
-  height: auto; /* Se ajusta al contenido */
+  width: 100%; /* Ajuste para evitar desbordamientos */
+  max-width: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: rgb(20, 11, 98);
-  padding: 3vw 0; /* Espaciado optimizado */
-  margin: 0;
+  padding: 3vw 5vw; /* Espaciado optimizado */
+  margin: 0 auto;
+  box-sizing: border-box; /* Evita que el padding haga que se desborde */
 }
 
+/* ======= PERFIL ======= */
 .profile {
   display: flex;
   justify-content: center;
@@ -19,8 +21,8 @@
 }
 
 .profile-image {
-  width: 8vw;
-  max-width: 180px; /* Ajustado para móviles */
+  width: 10vw;
+  max-width: 150px; /* Tamaño optimizado para móviles */
   height: auto;
   border-radius: 50%;
   object-fit: cover;
@@ -32,6 +34,7 @@
   transform: scale(1.05);
 }
 
+/* ======= TITULO ======= */
 .title {
   text-align: center;
   margin-bottom: 2vw;
@@ -47,17 +50,18 @@
   transform: translateY(0);
 }
 
+/* ======= CONTENEDOR DEL TEXTO ======= */
 .body1 {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 90%;
-  max-width: 850px; /* Reducido para móviles */
+  max-width: 850px;
   padding: 0 2vw;
 }
 
-/* Ajuste de la caja de contenido */
+/* ======= CAJA DE CONTENIDO ======= */
 .content-box {
   background-color: white;
   border-radius: 15px;
@@ -65,17 +69,22 @@
   max-width: 750px;
   width: 90%;
   margin: 0 auto;
+  box-sizing: border-box;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 0.6s ease, transform 0.6s ease;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
+/* Animación de aparición */
 .content-box.fade-in {
   opacity: 1;
   transform: translateY(0);
 }
 
+/* ======= TEXTO ======= */
 p {
   color: rgb(20, 11, 98);
   margin: 0 0 15px 0;
@@ -83,15 +92,7 @@ p {
   font-size: 1rem;
 }
 
-ul {
-  margin-left: 20px;
-  color: rgb(20, 11, 98);
-}
-
-li {
-  margin-bottom: 10px;
-}
-
+/* ======= ICONOS ======= */
 .tech-icons {
   text-align: center;
   margin-top: 3vw;
@@ -123,46 +124,57 @@ li {
   color: rgb(220, 220, 255);
 }
 
-/* Media Queries para tablets */
+/* ======= MEDIA QUERIES ======= */
+
+/* Tablets */
 @media (max-width: 768px) {
   .body {
-    padding: 5vw 0;
+    padding: 4vw;
   }
 
   .content-box {
     padding: 5vw;
-    max-width: 600px; /* Reducido para mejorar la visibilidad */
+    max-width: 600px;
+  }
+
+  .profile-image {
+    width: 20vw;
+    max-width: 130px;
+  }
+
+  .title {
+    font-size: clamp(1.8rem, 4.5vw, 3rem);
   }
 }
 
-/* Media Queries para móviles */
+/* Móviles */
 @media (max-width: 480px) {
   .body {
-    padding: 3vw 0; /* Reducir padding en móviles */
+    padding: 3vw;
   }
 
   .body1 {
     width: 95%;
-    max-width: 85vw; /* Evita que el contenido sea muy ancho */
+    max-width: 85vw;
   }
 
   .content-box {
     padding: 6vw;
-    max-width: 450px; /* Reducir tamaño en móviles */
-    width: 90%;
+    max-width: 400px; /* Reducido para móviles pequeños */
+    width: 100%;
   }
 
   .profile-image {
-    width: 25vw; /* Ajustado para móviles */
+    width: 25vw;
     max-width: 120px;
   }
 
   .title {
-    font-size: clamp(1.5rem, 4vw, 2.8rem);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
   }
 
   .tech-title {
-    font-size: clamp(1.3rem, 3vw, 2.5rem);
+    font-size: clamp(1.3rem, 3vw, 2rem);
   }
 
   .icons-container svg {
