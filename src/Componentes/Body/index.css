@@ -1,10 +1,15 @@
 /* Base styles */
 .body {
-  margin-top: 10vw;
+  width: 100vw; /* Ocupar toda la pantalla */
+  max-width: 100%; /* Asegura que no se limite */
+  min-height: 100vh; /* Asegura que ocupe la pantalla completa */
+  display: flex; /* Flexbox para centrar */
+  flex-direction: column; /* Asegura que los elementos se apilen */
+  align-items: center; /* Centra el contenido horizontalmente */
+  justify-content: center; /* Centra el contenido verticalmente */
   background-color: rgb(20, 11, 98);
-  width: 100%;
-  height: auto;
-  padding: 5vw;
+  padding: 3vw 0;
+  margin: 0; /* Elimina el margen extra */
 }
 
 .profile {
@@ -14,8 +19,8 @@
 }
 
 .profile-image {
-  width: 15vw; /* Tamaño más grande en pantallas grandes */
-  max-width: 200px; /* Aumenta el tamaño máximo */
+  width: 8vw;
+  max-width: 200px;
   height: auto;
   border-radius: 50%;
   object-fit: cover;
@@ -34,7 +39,7 @@
   transform: translateY(50px);
   transition: opacity 0.6s ease, transform 0.6s ease;
   color: white;
-  font-size: 6vw; /* Escala relativa */
+  font-size: clamp(2rem, 5vw, 4rem);
 }
 
 .title.fade-in {
@@ -44,8 +49,12 @@
 
 .body1 {
   display: flex;
+  flex-direction: column; /* Asegura que los elementos se apilen */
+  align-items: center; /* Centra los elementos */
   justify-content: center;
-  padding: 0 5vw;
+  width: 90%;
+  max-width: 900px;
+  padding: 0 2vw; /* Ajustado para mejorar el espacio */
 }
 
 .content-box {
@@ -53,7 +62,8 @@
   border-radius: 15px;
   padding: 4vw;
   max-width: 800px;
-  width: 100%;
+  width: 90%;
+  margin: 0 auto; /* Asegura que esté centrado */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   opacity: 0;
   transform: translateY(50px);
@@ -89,7 +99,7 @@ li {
 .tech-title {
   color: white;
   margin-bottom: 2vw;
-  font-size: 4vw;
+  font-size: clamp(1.5rem, 4vw, 3rem);
 }
 
 .icons-container {
@@ -100,8 +110,8 @@ li {
 }
 
 .icons-container svg {
-  width: 10vw; /* Tamaño relativo */
-  max-width: 50px; /* Limita el tamaño máximo */
+  width: 8vw;
+  max-width: 40px;
   height: auto;
   color: white;
   transition: transform 0.3s ease, color 0.3s ease;
@@ -113,58 +123,77 @@ li {
 }
 
 /* Media Queries para diseño responsive */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .body {
-    padding: 5vw 3vw;
-  }
-
-  .profile-image {
-    width: 25vw; /* Más grande en tablets */
-    max-width: 150px; /* Limita el tamaño máximo */
-  }
-
-  .title {
-    font-size: 5vw; /* Ajustar título */
+    width: 100%;
+    max-width: 100%;
   }
 
   .content-box {
+    width: 90%;
+    max-width: 700px;
     padding: 5vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .body {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .profile-image {
+    width: 25vw;
+    max-width: 150px;
+  }
+
+  .title {
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
+  }
+
+  .content-box {
+    padding: 6vw;
+    width: 92%;
+    max-width: 600px;
   }
 
   .tech-title {
-    font-size: 5vw;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
   }
 
   .icons-container svg {
-    width: 12vw; /* Más grandes en tablets */
+    width: 12vw;
     max-width: 40px;
   }
 }
 
 @media (max-width: 480px) {
   .body {
-    padding: 4vw 2vw;
+    width: 100%;
+    max-width: 100%;
   }
 
   .profile-image {
-    width: 30vw; /* Más grande en móviles */
-    max-width: 120px; /* Limita el tamaño máximo */
+    width: 30vw;
+    max-width: 120px;
   }
 
   .title {
-    font-size: 4.5vw; /* Ajustar tamaño del título */
+    font-size: clamp(1.5rem, 4.5vw, 3rem);
   }
 
   .content-box {
-    padding: 6vw;
+    padding: 7vw;
+    width: 95%;
+    max-width: 500px;
   }
 
   .tech-title {
-    font-size: 4.5vw;
+    font-size: clamp(1.3rem, 4.5vw, 2.3rem);
   }
 
   .icons-container svg {
-    width: 15vw; /* Íconos más grandes */
+    width: 15vw;
     max-width: 30px;
   }
 }

@@ -1,15 +1,19 @@
 import React, { useEffect, useRef } from 'react';
 import './index.css';
 import profileImage from '../../assets/profile1.png';
-import { SiPython, SiPlotly, SiPandas, SiNumpy, SiApachespark, SiDatabricks, SiTableau, SiReact, SiPostgresql } from 'react-icons/si';
+import { 
+  SiPython, SiPlotly, SiPandas, SiNumpy, SiApachespark, 
+  SiDatabricks, SiTableau, SiReact, SiPostgresql 
+} from 'react-icons/si';
 import { FaFileExcel } from 'react-icons/fa';
 
-const useIntersectionFadeIn = (ref) => {
+// Custom Hook for Intersection Observer
+const useIntersectionFadeIn = (refs) => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && !entry.target.classList.contains('fade-in')) {
+          if (entry.isIntersecting) {
             entry.target.classList.add('fade-in');
           }
         });
@@ -17,31 +21,29 @@ const useIntersectionFadeIn = (ref) => {
       { threshold: 0.5 }
     );
 
-    const currentRef = ref.current;
-    if (currentRef) observer.observe(currentRef);
+    refs.forEach((ref) => {
+      if (ref.current) observer.observe(ref.current);
+    });
 
     return () => {
-      if (currentRef) observer.unobserve(currentRef);
+      refs.forEach((ref) => {
+        if (ref.current) observer.unobserve(ref.current);
+      });
     };
-  }, [ref]);
+  }, [refs]);
 };
 
 const Body = () => {
   const aboutTitleRef = useRef(null);
   const aboutContentRef = useRef(null);
 
-  useIntersectionFadeIn(aboutTitleRef);
-  useIntersectionFadeIn(aboutContentRef);
+  useIntersectionFadeIn([aboutTitleRef, aboutContentRef]);
 
   return (
     <section className="body">
       {/* Profile Image */}
       <div className="profile">
-        <img
-          src={profileImage}
-          alt="Profile"
-          className="profile-image"
-        />
+        <img src={profileImage} alt="Profile" className="profile-image" />
       </div>
 
       {/* Title Section */}
@@ -59,14 +61,12 @@ const Body = () => {
             specialize in solving complex problems and delivering value through
             data-driven insights.
           </p>
-          <p>
-            My expertise lies in:
-            <ul>
-              <li>Building predictive models</li>
-              <li>Conducting advanced data analysis</li>
-              <li>Designing strategies based on actionable insights</li>
-            </ul>
-          </p>
+          <p>My expertise lies in:</p>
+          <ul>
+            <li>Building predictive models</li>
+            <li>Conducting advanced data analysis</li>
+            <li>Designing strategies based on actionable insights</li>
+          </ul>
           <p>
             By combining analytical rigor with modern technological tools, I
             tackle challenges from a multidisciplinary perspective. I also enjoy
@@ -84,7 +84,7 @@ const Body = () => {
           <SiPython title="Python" />
           <SiPandas title="Pandas" />
           <SiNumpy title="NumPy" />
-          <SiPlotly title="Matplotlib" />
+          <SiPlotly title="Plotly" />
           <SiApachespark title="PySpark" />
           <SiPostgresql title="PostgreSQL" />
           <SiDatabricks title="Databricks" />
