@@ -32,14 +32,6 @@ const Foot = () => {
               <i className="fab fa-github"></i>
             </a>
             <a
-              href="https://twitter.com/joaquinelizondo"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link"
-            >
-              <i className="fab fa-twitter"></i>
-            </a>
-            <a
               href="https://instagram.com/joaquinelizondo"
               target="_blank"
               rel="noopener noreferrer"
